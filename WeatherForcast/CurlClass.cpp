@@ -5,9 +5,10 @@
 #include "CurlInterface.h"
 
 
-Curl::Curl(std::string latitude, std::string longitude, Data * data)
+Curl::Curl(std::string &latitude, std::string& longitude, Data * data)
 {
-    static std::string temp = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&current=temperature_2m,rain&daily=temperature_2m_max,temperature_2m_min&timezone=Africa%2FCairo";
+    static std::string temp;
+    temp = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&current=temperature_2m,rain&daily=temperature_2m_max,temperature_2m_min&timezone=Africa%2FCairo";
     this->weatherAPI = temp.data();
     this->data = data;
 }

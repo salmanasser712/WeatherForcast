@@ -26,7 +26,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QLabel *Longtiude;
+    QLabel *Longitude;
     QLabel *Latitude;
     QLineEdit *Longitude_in;
     QLineEdit *Latitude_in;
@@ -43,18 +43,18 @@ public:
         MainWindow->resize(796, 530);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        Longtiude = new QLabel(centralwidget);
-        Longtiude->setObjectName("Longtiude");
-        Longtiude->setGeometry(QRect(40, 30, 81, 17));
+        Longitude = new QLabel(centralwidget);
+        Longitude->setObjectName("Longitude");
+        Longitude->setGeometry(QRect(280, 30, 81, 17));
         Latitude = new QLabel(centralwidget);
         Latitude->setObjectName("Latitude");
-        Latitude->setGeometry(QRect(300, 30, 66, 17));
+        Latitude->setGeometry(QRect(40, 40, 66, 17));
         Longitude_in = new QLineEdit(centralwidget);
         Longitude_in->setObjectName("Longitude_in");
-        Longitude_in->setGeometry(QRect(140, 30, 113, 25));
+        Longitude_in->setGeometry(QRect(390, 30, 113, 25));
         Latitude_in = new QLineEdit(centralwidget);
         Latitude_in->setObjectName("Latitude_in");
-        Latitude_in->setGeometry(QRect(390, 30, 113, 25));
+        Latitude_in->setGeometry(QRect(130, 30, 113, 25));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(560, 30, 161, 25));
@@ -82,7 +82,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        Longtiude->setText(QCoreApplication::translate("MainWindow", "Longtiude:", nullptr));
+        Longitude->setText(QCoreApplication::translate("MainWindow", "Longitude:", nullptr));
         Latitude->setText(QCoreApplication::translate("MainWindow", "Latitude:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Get Current Weather", nullptr));
     } // retranslateUi

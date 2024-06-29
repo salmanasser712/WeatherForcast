@@ -14,7 +14,7 @@ typedef enum
 class Curl
 {
     public:
-    Curl(std::string latitude, std::string longitude, Data *data);
+    Curl(std::string &latitude, std::string &longitude, Data *data);
     Curl_Status Curl_Init();
     Curl_Status Curl_Setup();
     Curl_Status Curl_Preform();

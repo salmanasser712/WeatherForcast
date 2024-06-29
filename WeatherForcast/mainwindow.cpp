@@ -27,21 +27,22 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    std::string longtiude = ui->Longitude_in->text().toStdString();
+    std::string longitude = ui->Longitude_in->text().toStdString();
     std::string latitude = ui->Latitude_in->text().toStdString();
-    Rapidjson * json = GetWeatherData(longtiude, latitude);
+    Rapidjson * json = GetWeatherData(latitude, longitude);
 
     float weather = json->GetTemperature();
+   // std::cout << latitude << " " << longitude << " " <<weather << std::endl;
     ui->CurrentWeather->setText(QString::number(weather, 'g', 4));
 
     QChart * chart = UpdateGraph(json);
     ui->graphicsView->setChart(chart);
 
 }
-Rapidjson * GetWeatherData(std::string Long, std::string Lat)
+Rapidjson * GetWeatherData(std::string Lat, std::string Long)
 {
     Data * data = new Data();
-    Curl * curlobj = new Curl(Long, Lat, data);
+    Curl * curlobj = new Curl(Lat, Long, data);
     curlobj->Curl_Init();
     curlobj->Curl_Setup();
     curlobj->Curl_Preform();
