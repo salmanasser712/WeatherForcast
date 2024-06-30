@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_OPENGLWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_OPENGLWIDGETS_LIB -DQT_GRAPHS_LIB -DQT_QUICKWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_QUICK3D_LIB -DQT_QUICK3DRUNTIMERENDER_LIB -DQT_QUICK_LIB -DQT_OPENGL_LIB -DQT_QUICK3DUTILS_LIB -DQT_SHADERTOOLS_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_QMLINTEGRATION_LIB -DQT_NETWORK_LIB -DQT_CONCURRENT_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../WeatherForcast -I. -I../../../Qt/6.7.1/gcc_64/include -I../../../Qt/6.7.1/gcc_64/include/QtCharts -I../../../Qt/6.7.1/gcc_64/include/QtOpenGLWidgets -I../../../Qt/6.7.1/gcc_64/include/QtWidgets -I../../../Qt/6.7.1/gcc_64/include/QtOpenGL -I../../../Qt/6.7.1/gcc_64/include/QtGui -I../../../Qt/6.7.1/gcc_64/include/QtCore -I. -I. -I../../../Qt/6.7.1/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../WeatherForcast -I. -I../../../Qt/6.7.1/gcc_64/include -I../../../Qt/6.7.1/gcc_64/include/QtCharts -I../../../Qt/6.7.1/gcc_64/include/QtOpenGLWidgets -I../../../Qt/6.7.1/gcc_64/include/QtGraphs -I../../../Qt/6.7.1/gcc_64/include/QtQuickWidgets -I../../../Qt/6.7.1/gcc_64/include/QtWidgets -I../../../Qt/6.7.1/gcc_64/include/QtQuick3D -I../../../Qt/6.7.1/gcc_64/include/QtQuick3DRuntimeRender -I../../../Qt/6.7.1/gcc_64/include/QtQuick -I../../../Qt/6.7.1/gcc_64/include/QtOpenGL -I../../../Qt/6.7.1/gcc_64/include/QtQuick3DUtils -I../../../Qt/6.7.1/gcc_64/include/QtShaderTools -I../../../Qt/6.7.1/gcc_64/include/QtGui -I../../../Qt/6.7.1/gcc_64/include/QtQmlModels -I../../../Qt/6.7.1/gcc_64/include/QtQml -I../../../Qt/6.7.1/gcc_64/include/QtQmlIntegration -I../../../Qt/6.7.1/gcc_64/include/QtNetwork -I../../../Qt/6.7.1/gcc_64/include/QtConcurrent -I../../../Qt/6.7.1/gcc_64/include/QtCore -I. -I. -I../../../Qt/6.7.1/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/salma/Qt/6.7.1/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = WeatherForcast1.0.0
 DISTDIR = /home/salma/WeatherForcast/build/Desktop_Qt_6_7_1-Debug/.tmp/WeatherForcast1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/salma/Qt/6.7.1/gcc_64/lib -Wl,-rpath-link,/home/salma/Qt/6.7.1/gcc_64/lib
-LIBS          = $(SUBLIBS) -lcurl /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Charts.so -pthread /home/salma/Qt/6.7.1/gcc_64/lib/libQt6OpenGLWidgets.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Widgets.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6OpenGL.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Gui.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Core.so -lpthread -lGL   
+LIBS          = $(SUBLIBS) -lcurl /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Charts.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6OpenGLWidgets.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Graphs.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6QuickWidgets.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Widgets.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Quick3D.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Quick3DRuntimeRender.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Quick.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6OpenGL.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Quick3DUtils.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6ShaderTools.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Gui.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6QmlModels.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Qml.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6QmlBuiltins.a -pthread /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Network.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Concurrent.so /home/salma/Qt/6.7.1/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -769,9 +769,20 @@ Makefile: ../../WeatherForcast.pro ../../../Qt/6.7.1/gcc_64/mkspecs/features/spe
 		../../WeatherForcast.pro \
 		../../../Qt/6.7.1/gcc_64/lib/libQt6Charts.prl \
 		../../../Qt/6.7.1/gcc_64/lib/libQt6OpenGLWidgets.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Graphs.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6QuickWidgets.prl \
 		../../../Qt/6.7.1/gcc_64/lib/libQt6Widgets.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Quick3D.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Quick3DRuntimeRender.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Quick.prl \
 		../../../Qt/6.7.1/gcc_64/lib/libQt6OpenGL.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Quick3DUtils.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6ShaderTools.prl \
 		../../../Qt/6.7.1/gcc_64/lib/libQt6Gui.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6QmlModels.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Qml.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Network.prl \
+		../../../Qt/6.7.1/gcc_64/lib/libQt6Concurrent.prl \
 		../../../Qt/6.7.1/gcc_64/lib/libQt6Core.prl
 	$(QMAKE) -o Makefile ../../WeatherForcast.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 ../../../Qt/6.7.1/gcc_64/mkspecs/features/spec_pre.prf:
@@ -1119,9 +1130,20 @@ Makefile: ../../WeatherForcast.pro ../../../Qt/6.7.1/gcc_64/mkspecs/features/spe
 ../../WeatherForcast.pro:
 ../../../Qt/6.7.1/gcc_64/lib/libQt6Charts.prl:
 ../../../Qt/6.7.1/gcc_64/lib/libQt6OpenGLWidgets.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Graphs.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6QuickWidgets.prl:
 ../../../Qt/6.7.1/gcc_64/lib/libQt6Widgets.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Quick3D.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Quick3DRuntimeRender.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Quick.prl:
 ../../../Qt/6.7.1/gcc_64/lib/libQt6OpenGL.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Quick3DUtils.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6ShaderTools.prl:
 ../../../Qt/6.7.1/gcc_64/lib/libQt6Gui.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6QmlModels.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Qml.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Network.prl:
+../../../Qt/6.7.1/gcc_64/lib/libQt6Concurrent.prl:
 ../../../Qt/6.7.1/gcc_64/lib/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../../WeatherForcast.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -1366,12 +1388,13 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../../Qt/6.7.1/gcc_64/include/QtCore \
 		../../../Qt/6.7.1/gcc_64/include/QtGui \
 		../../../Qt/6.7.1/gcc_64/include/QtCharts \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
 		../../CurlInterface.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
 		moc_predefs.h \
 		../../../Qt/6.7.1/gcc_64/libexec/moc
-	/home/salma/Qt/6.7.1/gcc_64/libexec/moc $(DEFINES) --include /home/salma/WeatherForcast/build/Desktop_Qt_6_7_1-Debug/moc_predefs.h -I/home/salma/Qt/6.7.1/gcc_64/mkspecs/linux-g++ -I/home/salma/WeatherForcast -I/home/salma/Qt/6.7.1/gcc_64/include -I/home/salma/Qt/6.7.1/gcc_64/include/QtCharts -I/home/salma/Qt/6.7.1/gcc_64/include/QtOpenGLWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtOpenGL -I/home/salma/Qt/6.7.1/gcc_64/include/QtGui -I/home/salma/Qt/6.7.1/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+	/home/salma/Qt/6.7.1/gcc_64/libexec/moc $(DEFINES) --include /home/salma/WeatherForcast/build/Desktop_Qt_6_7_1-Debug/moc_predefs.h -I/home/salma/Qt/6.7.1/gcc_64/mkspecs/linux-g++ -I/home/salma/WeatherForcast -I/home/salma/Qt/6.7.1/gcc_64/include -I/home/salma/Qt/6.7.1/gcc_64/include/QtCharts -I/home/salma/Qt/6.7.1/gcc_64/include/QtOpenGLWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtGraphs -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuickWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick3D -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick3DRuntimeRender -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick -I/home/salma/Qt/6.7.1/gcc_64/include/QtOpenGL -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick3DUtils -I/home/salma/Qt/6.7.1/gcc_64/include/QtShaderTools -I/home/salma/Qt/6.7.1/gcc_64/include/QtGui -I/home/salma/Qt/6.7.1/gcc_64/include/QtQmlModels -I/home/salma/Qt/6.7.1/gcc_64/include/QtQml -I/home/salma/Qt/6.7.1/gcc_64/include/QtQmlIntegration -I/home/salma/Qt/6.7.1/gcc_64/include/QtNetwork -I/home/salma/Qt/6.7.1/gcc_64/include/QtConcurrent -I/home/salma/Qt/6.7.1/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1586,6 +1609,7 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../../Qt/6.7.1/gcc_64/include/QtCore \
 		../../../Qt/6.7.1/gcc_64/include/QtGui \
 		../../../Qt/6.7.1/gcc_64/include/QtCharts \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
 		../../CurlInterface.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
@@ -1784,6 +1808,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../../Qt/6.7.1/gcc_64/include/QtCore \
 		../../../Qt/6.7.1/gcc_64/include/QtGui \
 		../../../Qt/6.7.1/gcc_64/include/QtCharts \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
 		../../CurlInterface.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
@@ -1849,7 +1874,101 @@ DataClass.o: ../../DataClass.cpp ../../DataInterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataClass.o ../../DataClass.cpp
 
 CurlClass.o: ../../CurlClass.cpp ../../DataInterface.h \
-		../../CurlInterface.h
+		../../CurlInterface.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtversionchecks.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtconfiginclude.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtconfigmacros.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtcoreexports.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qassert.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtnoop.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtypes.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtversion.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qflags.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcompare_impl.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qyieldcpu.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qconstructormacros.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qdarwinhelpers.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qexceptionhandling.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qforeach.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qttypetraits.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qfunctionpointer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qmalloc.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qminmax.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qoverload.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qswap.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtresource.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qttranslation.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qshareddata.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstring.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qchar.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringview.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtmetamacros.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qpair.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qarraydatapointer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qarraydataops.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qxptype_traits.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/q20functional.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/q20memory.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qbytearrayview.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringfwd.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/q20type_traits.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringliteral.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qlatin1stringview.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qanystringview.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qutf8stringview.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringtokenizer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringconverter.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringconverter_base.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qmetatype.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcompare.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcomparehelpers.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qdatastream.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qiodevicebase.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qfloat16.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qmath.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qalgorithms.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qiterable.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qmetacontainer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qcontainerinfo.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qtaggedpointer.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qscopeguard.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CurlClass.o ../../CurlClass.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

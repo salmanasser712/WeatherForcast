@@ -26,7 +26,7 @@ FORMS += \
     
 LIBS += -lcurl
 
-QT += charts
+QT += charts graphs
 QT += core
 
 # Default rules for deployment.

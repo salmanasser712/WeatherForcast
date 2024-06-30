@@ -11,8 +11,8 @@ class Data
     ~Data();
 
     private:
-    char * Response = (char * )malloc(1);
-    size_t size = 0;
+    char * Response;
+    size_t size;
 };
 
 #endif

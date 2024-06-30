@@ -15,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
     Rapidjson * json = GetWeatherData("29.9964", "31.295");
     float weather = json->GetTemperature();
     ui->CurrentWeather->setText(QString::number(weather, 'g', 4));
+
+    std::string Date = json->GetDate();
+    ui->Current_Date->setText(QString::fromStdString(Date));
+
     QChart * chart = UpdateGraph(json);
     ui->graphicsView->setChart(chart);
 
@@ -32,8 +36,10 @@ void MainWindow::on_pushButton_clicked()
     Rapidjson * json = GetWeatherData(latitude, longitude);
 
     float weather = json->GetTemperature();
-   // std::cout << latitude << " " << longitude << " " <<weather << std::endl;
     ui->CurrentWeather->setText(QString::number(weather, 'g', 4));
+
+    std::string Date = json->GetDate();
+    ui->Current_Date->setText(QString::fromStdString(Date));
 
     QChart * chart = UpdateGraph(json);
     ui->graphicsView->setChart(chart);
@@ -68,21 +74,43 @@ QChart * UpdateGraph(Rapidjson * json)
         MinTempLine->append(i, Mintemp[i]);
     }
 
+    QPen pen(QRgb(0x830000));
+    pen.setWidth(4);
+    MaxTempLine->setPen(pen);
+    MaxTempLine->setName("Max. Temperature");
+
+    QPen pen_min(QRgb(0x00006e));
+    pen_min.setWidth(4);
+    MinTempLine->setPen(pen_min);
+    MinTempLine->setName("Min. Temperature");
 
     QChart * chart_method = new QChart();
-    chart_method->legend()->hide();
     chart_method->addSeries(MaxTempLine);
     chart_method->addSeries(MinTempLine);
     chart_method->createDefaultAxes();
+    chart_method->setTitle("7-Days Weather ForCast");
     chart_method->setVisible(true);
 
     QCategoryAxis * axisX = new QCategoryAxis();
+    axisX->setTitleText("Date");
     for(int i = 0; i < NumDays; i++)
     {
         axisX->append(QString::fromStdString(Dates[i]), i);
     }
     chart_method->setAxisX(axisX, MaxTempLine);
     chart_method->setAxisX(axisX, MinTempLine);
+
+    QValueAxis* axisY = new QValueAxis;
+    axisY->setTitleText("Temperature [°C]");
+    axisY->setRange(20, 50);
+    axisY->setTickInterval(5);
+
+    chart_method->setAxisY(axisY, MaxTempLine);
+    chart_method->setAxisY(axisY, MinTempLine);
+
+
+
+
     delete(json);
 
     return chart_method;

@@ -33,11 +33,9 @@ Curl_Status Curl:: Curl_Setup()
         printf("data null\n");
         return CURLNOK;
     }
-    //curl_easy_setopt(this->curl, CURLOPT_VERBOSE, 1);
     curl_easy_setopt(this->curl, CURLOPT_URL, weatherAPI);
     curl_easy_setopt(this->curl, CURLOPT_WRITEFUNCTION, Data::write_chunk);
     curl_easy_setopt(this->curl, CURLOPT_WRITEDATA, (void *) (this->data));
-    //curl_easy_setopt(this->curl, CURLOPT_WRITEDATA, reinterpret_cast<void*>(this->data.get()));
 
     return CURLOK;
 }

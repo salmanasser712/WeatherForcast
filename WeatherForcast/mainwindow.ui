@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>796</width>
-    <height>530</height>
+    <width>818</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>30</y>
+      <y>20</y>
       <width>81</width>
       <height>17</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QLabel" name="Latitude">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>40</y>
+      <x>30</x>
+      <y>20</y>
       <width>66</width>
       <height>17</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>30</y>
+      <y>20</y>
       <width>113</width>
       <height>25</height>
      </rect>
@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>30</y>
+      <y>20</y>
       <width>113</width>
       <height>25</height>
      </rect>
@@ -63,8 +63,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>30</y>
+      <x>600</x>
+      <y>20</y>
       <width>161</width>
       <height>25</height>
      </rect>
@@ -76,8 +76,8 @@
    <widget class="QLineEdit" name="CurrentWeather">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>80</y>
+      <x>530</x>
+      <y>60</y>
       <width>113</width>
       <height>25</height>
      </rect>
@@ -90,10 +90,49 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>130</y>
-      <width>791</width>
-      <height>361</height>
+      <y>100</y>
+      <width>821</width>
+      <height>431</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>60</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Current Weather:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>60</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Current Date:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Current_Date">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>60</y>
+      <width>113</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -102,7 +141,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>796</width>
+     <width>818</width>
      <height>22</height>
     </rect>
    </property>

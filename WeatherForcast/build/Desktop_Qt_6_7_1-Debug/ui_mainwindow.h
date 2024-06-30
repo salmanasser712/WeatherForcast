@@ -33,6 +33,9 @@ public:
     QPushButton *pushButton;
     QLineEdit *CurrentWeather;
     QChartView *graphicsView;
+    QLabel *label;
+    QLabel *label_2;
+    QLineEdit *Current_Date;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -40,35 +43,45 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(796, 530);
+        MainWindow->resize(818, 552);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         Longitude = new QLabel(centralwidget);
         Longitude->setObjectName("Longitude");
-        Longitude->setGeometry(QRect(280, 30, 81, 17));
+        Longitude->setGeometry(QRect(280, 20, 81, 17));
         Latitude = new QLabel(centralwidget);
         Latitude->setObjectName("Latitude");
-        Latitude->setGeometry(QRect(40, 40, 66, 17));
+        Latitude->setGeometry(QRect(30, 20, 66, 17));
         Longitude_in = new QLineEdit(centralwidget);
         Longitude_in->setObjectName("Longitude_in");
-        Longitude_in->setGeometry(QRect(390, 30, 113, 25));
+        Longitude_in->setGeometry(QRect(390, 20, 113, 25));
         Latitude_in = new QLineEdit(centralwidget);
         Latitude_in->setObjectName("Latitude_in");
-        Latitude_in->setGeometry(QRect(130, 30, 113, 25));
+        Latitude_in->setGeometry(QRect(130, 20, 113, 25));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(560, 30, 161, 25));
+        pushButton->setGeometry(QRect(600, 20, 161, 25));
         CurrentWeather = new QLineEdit(centralwidget);
         CurrentWeather->setObjectName("CurrentWeather");
-        CurrentWeather->setGeometry(QRect(340, 80, 113, 25));
+        CurrentWeather->setGeometry(QRect(530, 60, 113, 25));
         CurrentWeather->setReadOnly(true);
         graphicsView = new QChartView(centralwidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(0, 130, 791, 361));
+        graphicsView->setGeometry(QRect(0, 100, 821, 431));
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(400, 60, 121, 20));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(100, 60, 101, 17));
+        Current_Date = new QLineEdit(centralwidget);
+        Current_Date->setObjectName("Current_Date");
+        Current_Date->setGeometry(QRect(210, 60, 113, 25));
+        Current_Date->setReadOnly(true);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 796, 22));
+        menubar->setGeometry(QRect(0, 0, 818, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -85,6 +98,8 @@ public:
         Longitude->setText(QCoreApplication::translate("MainWindow", "Longitude:", nullptr));
         Latitude->setText(QCoreApplication::translate("MainWindow", "Latitude:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Get Current Weather", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Current Weather:", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Current Date:", nullptr));
     } // retranslateUi
 
 };
