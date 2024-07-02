@@ -103,7 +103,7 @@ QChart * UpdateGraph(Rapidjson * json)
     QValueAxis* axisY = new QValueAxis;
     axisY->setTitleText("Temperature [°C]");
     axisY->setRange(20, 50);
-    axisY->setTickInterval(5);
+    axisY->setTickCount(15);
 
     chart_method->setAxisY(axisY, MaxTempLine);
     chart_method->setAxisY(axisY, MinTempLine);

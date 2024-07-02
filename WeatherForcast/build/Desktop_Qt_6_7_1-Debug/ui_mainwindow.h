@@ -43,7 +43,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(818, 552);
+        MainWindow->resize(900, 617);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         Longitude = new QLabel(centralwidget);
@@ -67,7 +67,7 @@ public:
         CurrentWeather->setReadOnly(true);
         graphicsView = new QChartView(centralwidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(0, 100, 821, 431));
+        graphicsView->setGeometry(QRect(0, 100, 901, 511));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setGeometry(QRect(400, 60, 121, 20));
@@ -81,7 +81,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 818, 22));
+        menubar->setGeometry(QRect(0, 0, 900, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");

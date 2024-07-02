@@ -71,3 +71,4 @@ std::string * Rapidjson:: GetForcastDate()
     }
     return arr;
 }
+

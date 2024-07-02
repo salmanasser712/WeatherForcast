@@ -1,7 +1,4 @@
-#include <string>
-#include <cstring>
 #include "DataInterface.h"
-#include <iostream>
 
 
 Data::Data()
