@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     CurlAbstractDestructor.cpp \
     DataAbstractDestructor.cpp \
+    Utilities.cpp \
     main.cpp \
     mainwindow.cpp \
     RapidjsonClass.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     CurlAbstract.h \
     DataAbstract.h \
     RapidjsonAbstract.h \
+    Utilities.h \
     mainwindow.h \
     CurlInterface.h \
     DataInterface.h \

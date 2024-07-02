@@ -2,16 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtCore>
-#include <QtGui>
-#include <QtCharts>
-#include <QSharedPointer>
-#include <string>
-#include <memory>
-#include <iostream>
-#include "CurlInterface.h"
-#include "DataInterface.h"
-#include "RapidjasonInterface.h"
+#include "Utilities.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
