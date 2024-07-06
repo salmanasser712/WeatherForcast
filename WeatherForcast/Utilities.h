@@ -12,11 +12,13 @@
 #include "DataInterface.h"
 #include "RapidjasonInterface.h"
 
-Rapidjson * GetWeatherData(std::string Lat, std::string Long);
-QLineSeries * GetMaxForcastLine(Rapidjson * json);
-QLineSeries * GetMinForcastLine(Rapidjson * json);
-QCategoryAxis * GetaxisX(Rapidjson * json);
+
+bool isValidNumber(std::string& stdStr, bool Longtiude);
+std::shared_ptr<Rapidjson>  GetWeatherData(std::string Lat, std::string Long);
+QLineSeries * GetMaxForcastLine(std::shared_ptr<Rapidjson> json);
+QLineSeries * GetMinForcastLine(std::shared_ptr<Rapidjson> json);
+QCategoryAxis * GetaxisX(std::shared_ptr<Rapidjson> json);
 QValueAxis * GetaxisY();
-QChart * UpdateGraph(Rapidjson * json);
+QChart * UpdateGraph(std::shared_ptr<Rapidjson> json);
 
 #endif // UTILITIES_H

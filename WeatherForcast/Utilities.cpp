@@ -1,22 +1,41 @@
 #include "Utilities.h"
 
 
-Rapidjson * GetWeatherData(std::string Lat, std::string Long)
+bool isValidNumber(std::string& stdStr, bool Longtiude) {
+
+    // Check if the string is a valid number
+    std::istringstream iss(stdStr);
+    double num;
+    iss >> std::noskipws >> num;  // Try to read the number
+
+    // Check if the entire string was consumed and no error occurred
+    bool ans = iss.eof() && !iss.fail();
+    if((Longtiude && num >= -180 && num <= 180) ||(!Longtiude && num >= -90 && num <= 90))
+    {
+        ans &= true;
+    }
+    else
+    {
+        ans &= false;
+    }
+
+    return ans;
+}
+
+std::shared_ptr<Rapidjson> GetWeatherData(std::string Lat, std::string Long)
 {
-    Data * data = new Data();
-    Curl * curlobj = new Curl(Lat, Long, data);
+    std::shared_ptr<Data>  data = std::make_shared<Data>();
+    std::shared_ptr<Curl> curlobj = std::make_shared<Curl>(Lat, Long, data);
     curlobj->Curl_Init();
     curlobj->Curl_Setup();
     curlobj->Curl_Preform();
-    Rapidjson * json = new Rapidjson(data->GetResponse());
 
-    delete(curlobj);
-    delete(data);
+    std::shared_ptr<Rapidjson> json = std::make_shared<Rapidjson>(data->GetResponse());
 
     return json;
 }
 
-QLineSeries * GetMaxForcastLine(Rapidjson * json)
+QLineSeries * GetMaxForcastLine(std::shared_ptr<Rapidjson> json)
 {
     float * Maxtemp = json->GetMaxForcastTemp();
     QLineSeries * MaxTempLine = new QLineSeries();
@@ -33,7 +52,7 @@ QLineSeries * GetMaxForcastLine(Rapidjson * json)
     return MaxTempLine;
 }
 
-QLineSeries * GetMinForcastLine(Rapidjson * json)
+QLineSeries * GetMinForcastLine(std::shared_ptr<Rapidjson> json)
 {
     float * Mintemp = json->GetMinForcastTemp();
     QLineSeries * MinTempLine = new QLineSeries();
@@ -51,7 +70,7 @@ QLineSeries * GetMinForcastLine(Rapidjson * json)
     return MinTempLine;
 }
 
-QCategoryAxis * GetaxisX(Rapidjson * json)
+QCategoryAxis * GetaxisX(std::shared_ptr<Rapidjson>  json)
 {
     std::string * Dates = json->GetForcastDate();
 
@@ -69,17 +88,16 @@ QValueAxis * GetaxisY()
 {
     QValueAxis* axisY = new QValueAxis;
     axisY->setTitleText("Temperature [°C]");
-    axisY->setRange(20, 50);
     axisY->setTickCount(15);
 
     return axisY;
 }
-QChart * UpdateGraph(Rapidjson * json)
+QChart * UpdateGraph(std::shared_ptr<Rapidjson> json)
 {
     QLineSeries * MaxTempLine = GetMaxForcastLine(json);
     QLineSeries * MinTempLine = GetMinForcastLine(json);
 
-    QChart * chart_method = new QChart();
+    QChart* chart_method = new QChart();
     chart_method->addSeries(MaxTempLine);
     chart_method->addSeries(MinTempLine);
     chart_method->createDefaultAxes();
@@ -93,8 +111,6 @@ QChart * UpdateGraph(Rapidjson * json)
     QValueAxis* axisY = GetaxisY();
     chart_method->setAxisY(axisY, MaxTempLine);
     chart_method->setAxisY(axisY, MinTempLine);
-
-    delete(json);
 
     return chart_method;
 }

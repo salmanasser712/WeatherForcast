@@ -2,6 +2,7 @@
 #define CURLABSTRACT_H
 
 #include <curl/curl.h>
+#include <memory>
 #include "DataAbstract.h"
 
 typedef enum
@@ -21,7 +22,7 @@ class CurlAbstract{
     CURL *curl;
     CURLcode result;
     char *weatherAPI;
-    DataAbstract * data;
+    std::shared_ptr<DataAbstract> data;
 };
 
 #endif // CURLABSTRACT_H

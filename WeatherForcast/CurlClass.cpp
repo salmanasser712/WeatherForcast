@@ -5,7 +5,7 @@
 #include "CurlInterface.h"
 
 
-Curl::Curl(std::string &latitude, std::string& longitude, DataAbstract * data)
+Curl::Curl(std::string &latitude, std::string& longitude, std::shared_ptr<DataAbstract> data)
 {
     if(data == NULL)std::cout << "error class\n";
     static std::string temp;
@@ -36,7 +36,7 @@ Curl_Status Curl:: Curl_Setup()
     }
     curl_easy_setopt(this->curl, CURLOPT_URL, weatherAPI);
     curl_easy_setopt(this->curl, CURLOPT_WRITEFUNCTION, Data::write_chunk);
-    curl_easy_setopt(this->curl, CURLOPT_WRITEDATA, (void *) (this->data));
+    curl_easy_setopt(this->curl, CURLOPT_WRITEDATA, this->data.get());
 
     return CURLOK;
 }

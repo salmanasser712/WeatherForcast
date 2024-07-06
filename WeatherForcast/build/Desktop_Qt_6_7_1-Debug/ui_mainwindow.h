@@ -36,6 +36,7 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLineEdit *Current_Date;
+    QLabel *ErrorMsg;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -48,19 +49,19 @@ public:
         centralwidget->setObjectName("centralwidget");
         Longitude = new QLabel(centralwidget);
         Longitude->setObjectName("Longitude");
-        Longitude->setGeometry(QRect(280, 20, 81, 17));
+        Longitude->setGeometry(QRect(250, 20, 81, 17));
         Latitude = new QLabel(centralwidget);
         Latitude->setObjectName("Latitude");
         Latitude->setGeometry(QRect(30, 20, 66, 17));
         Longitude_in = new QLineEdit(centralwidget);
         Longitude_in->setObjectName("Longitude_in");
-        Longitude_in->setGeometry(QRect(390, 20, 113, 25));
+        Longitude_in->setGeometry(QRect(330, 20, 113, 25));
         Latitude_in = new QLineEdit(centralwidget);
         Latitude_in->setObjectName("Latitude_in");
-        Latitude_in->setGeometry(QRect(130, 20, 113, 25));
+        Latitude_in->setGeometry(QRect(100, 20, 113, 25));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(600, 20, 161, 25));
+        pushButton->setGeometry(QRect(710, 20, 161, 25));
         CurrentWeather = new QLineEdit(centralwidget);
         CurrentWeather->setObjectName("CurrentWeather");
         CurrentWeather->setGeometry(QRect(530, 60, 113, 25));
@@ -78,6 +79,9 @@ public:
         Current_Date->setObjectName("Current_Date");
         Current_Date->setGeometry(QRect(210, 60, 113, 25));
         Current_Date->setReadOnly(true);
+        ErrorMsg = new QLabel(centralwidget);
+        ErrorMsg->setObjectName("ErrorMsg");
+        ErrorMsg->setGeometry(QRect(470, 20, 231, 20));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -94,12 +98,13 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Weather Forcast", nullptr));
         Longitude->setText(QCoreApplication::translate("MainWindow", "Longitude:", nullptr));
         Latitude->setText(QCoreApplication::translate("MainWindow", "Latitude:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Get Current Weather", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Current Weather:", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Current Date:", nullptr));
+        ErrorMsg->setText(QString());
     } // retranslateUi
 
 };
