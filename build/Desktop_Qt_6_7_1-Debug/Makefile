@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../CurlAbstractDestructor.cpp \
+SOURCES       = ../../Cities.cpp \
+		../../CurlAbstractDestructor.cpp \
 		../../DataAbstractDestructor.cpp \
 		../../Utilities.cpp \
 		../../main.cpp \
@@ -60,7 +61,8 @@ SOURCES       = ../../CurlAbstractDestructor.cpp \
 		../../RapidjsonClass.cpp \
 		../../DataClass.cpp \
 		../../CurlClass.cpp moc_mainwindow.cpp
-OBJECTS       = CurlAbstractDestructor.o \
+OBJECTS       = Cities.o \
+		CurlAbstractDestructor.o \
 		DataAbstractDestructor.o \
 		Utilities.o \
 		main.o \
@@ -411,14 +413,16 @@ DIST          = /Qt/6.7.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.7.1/gcc_64/mkspecs/features/exceptions.prf \
 		/Qt/6.7.1/gcc_64/mkspecs/features/yacc.prf \
 		/Qt/6.7.1/gcc_64/mkspecs/features/lex.prf \
-		../../../../WeatherForcast.pro ../../CurlAbstract.h \
+		../../../../WeatherForcast.pro ../../Cities.h \
+		../../CurlAbstract.h \
 		../../DataAbstract.h \
 		../../RapidjsonAbstract.h \
 		../../Utilities.h \
 		../../mainwindow.h \
 		../../CurlInterface.h \
 		../../DataInterface.h \
-		../../RapidjasonInterface.h ../../CurlAbstractDestructor.cpp \
+		../../RapidjasonInterface.h ../../Cities.cpp \
+		../../CurlAbstractDestructor.cpp \
 		../../DataAbstractDestructor.cpp \
 		../../Utilities.cpp \
 		../../main.cpp \
@@ -1173,8 +1177,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/6.7.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../CurlAbstract.h ../../DataAbstract.h ../../RapidjsonAbstract.h ../../Utilities.h ../../mainwindow.h ../../CurlInterface.h ../../DataInterface.h ../../RapidjasonInterface.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../CurlAbstractDestructor.cpp ../../DataAbstractDestructor.cpp ../../Utilities.cpp ../../main.cpp ../../mainwindow.cpp ../../RapidjsonClass.cpp ../../DataClass.cpp ../../CurlClass.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Cities.h ../../CurlAbstract.h ../../DataAbstract.h ../../RapidjsonAbstract.h ../../Utilities.h ../../mainwindow.h ../../CurlInterface.h ../../DataInterface.h ../../RapidjasonInterface.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Cities.cpp ../../CurlAbstractDestructor.cpp ../../DataAbstractDestructor.cpp ../../Utilities.cpp ../../main.cpp ../../mainwindow.cpp ../../RapidjsonClass.cpp ../../DataClass.cpp ../../CurlClass.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -1403,12 +1407,15 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../../Qt/6.7.1/gcc_64/include/QtGui \
 		../../../Qt/6.7.1/gcc_64/include/QtCharts \
 		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QString \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QStringList \
 		../../CurlInterface.h \
 		../../CurlAbstract.h \
 		../../DataAbstract.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
 		../../RapidjsonAbstract.h \
+		../../Cities.h \
 		moc_predefs.h \
 		../../../Qt/6.7.1/gcc_64/libexec/moc
 	/home/salma/Qt/6.7.1/gcc_64/libexec/moc $(DEFINES) --include /home/salma/WeatherForcast/build/Desktop_Qt_6_7_1-Debug/moc_predefs.h -I/home/salma/Qt/6.7.1/gcc_64/mkspecs/linux-g++ -I/home/salma/WeatherForcast -I/home/salma/Qt/6.7.1/gcc_64/include -I/home/salma/Qt/6.7.1/gcc_64/include/QtCharts -I/home/salma/Qt/6.7.1/gcc_64/include/QtOpenGLWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtGraphs -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuickWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtWidgets -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick3D -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick3DRuntimeRender -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick -I/home/salma/Qt/6.7.1/gcc_64/include/QtOpenGL -I/home/salma/Qt/6.7.1/gcc_64/include/QtQuick3DUtils -I/home/salma/Qt/6.7.1/gcc_64/include/QtShaderTools -I/home/salma/Qt/6.7.1/gcc_64/include/QtGui -I/home/salma/Qt/6.7.1/gcc_64/include/QtQmlModels -I/home/salma/Qt/6.7.1/gcc_64/include/QtQml -I/home/salma/Qt/6.7.1/gcc_64/include/QtQmlIntegration -I/home/salma/Qt/6.7.1/gcc_64/include/QtNetwork -I/home/salma/Qt/6.7.1/gcc_64/include/QtConcurrent -I/home/salma/Qt/6.7.1/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
@@ -1434,6 +1441,9 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+Cities.o: ../../Cities.cpp ../../Cities.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Cities.o ../../Cities.cpp
 
 CurlAbstractDestructor.o: ../../CurlAbstractDestructor.cpp ../../CurlAbstract.h \
 		../../DataAbstract.h
@@ -1540,12 +1550,20 @@ Utilities.o: ../../Utilities.cpp ../../Utilities.h \
 		../../../Qt/6.7.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		../../../Qt/6.7.1/gcc_64/include/QtCore/qfunctionaltools_impl.h \
 		../../../Qt/6.7.1/gcc_64/include/QtCore/qscopeguard.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QString \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QStringList \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringlist.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qlist.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qiterator.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/qstringmatcher.h \
 		../../CurlInterface.h \
 		../../CurlAbstract.h \
 		../../DataAbstract.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
-		../../RapidjsonAbstract.h
+		../../RapidjsonAbstract.h \
+		../../Cities.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Utilities.o ../../Utilities.cpp
 
 main.o: ../../main.cpp ../../mainwindow.h \
@@ -1741,12 +1759,15 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../../Qt/6.7.1/gcc_64/include/QtGui \
 		../../../Qt/6.7.1/gcc_64/include/QtCharts \
 		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QString \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QStringList \
 		../../CurlInterface.h \
 		../../CurlAbstract.h \
 		../../DataAbstract.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
 		../../RapidjsonAbstract.h \
+		../../Cities.h \
 		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
@@ -1944,65 +1965,16 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../../Qt/6.7.1/gcc_64/include/QtGui \
 		../../../Qt/6.7.1/gcc_64/include/QtCharts \
 		../../../Qt/6.7.1/gcc_64/include/QtCore/QSharedPointer \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QString \
+		../../../Qt/6.7.1/gcc_64/include/QtCore/QStringList \
 		../../CurlInterface.h \
 		../../CurlAbstract.h \
 		../../DataAbstract.h \
 		../../DataInterface.h \
 		../../RapidjasonInterface.h \
 		../../RapidjsonAbstract.h \
-		ui_mainwindow.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/QChartView \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qchartview.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/QAbstractAxis \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qabstractaxis.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/QChartGlobal \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qchartglobal.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qtcharts-config.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qtchartsexports.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/QPen \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qpen.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/QFont \
-		../../../Qt/6.7.1/gcc_64/include/QtCore/QVariant \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/QAbstractSeries \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qabstractseries.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/QChart \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qchart.h \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/QLegend \
-		../../../Qt/6.7.1/gcc_64/include/QtCharts/qlegend.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QGraphicsWidget \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qgraphicswidget.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/QBrush \
-		../../../Qt/6.7.1/gcc_64/include/QtCore/QMargins \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QGraphicsView \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qgraphicsview.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qpainter.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qtextoption.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qscrollarea.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qframe.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QApplication \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qapplication.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QLabel \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qlabel.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qpicture.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qtextdocument.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QLineEdit \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qlineedit.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qtextcursor.h \
-		../../../Qt/6.7.1/gcc_64/include/QtGui/qtextformat.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QPushButton \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QStatusBar \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/6.7.1/gcc_64/include/QtWidgets/QWidget
+		../../Cities.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 RapidjsonClass.o: ../../RapidjsonClass.cpp ../../RapidjasonInterface.h \

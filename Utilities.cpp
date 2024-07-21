@@ -1,27 +1,6 @@
 #include "Utilities.h"
 
 
-bool isValidNumber(std::string& stdStr, bool Longtiude) {
-
-    // Check if the string is a valid number
-    std::istringstream iss(stdStr);
-    double num;
-    iss >> std::noskipws >> num;  // Try to read the number
-
-    // Check if the entire string was consumed and no error occurred
-    bool ans = iss.eof() && !iss.fail();
-    if((Longtiude && num >= -180 && num <= 180) ||(!Longtiude && num >= -90 && num <= 90))
-    {
-        ans &= true;
-    }
-    else
-    {
-        ans &= false;
-    }
-
-    return ans;
-}
-
 std::shared_ptr<Rapidjson> GetWeatherData(std::string Lat, std::string Long)
 {
     std::shared_ptr<Data>  data = std::make_shared<Data>();
@@ -113,4 +92,15 @@ QChart * UpdateGraph(std::shared_ptr<Rapidjson> json)
     chart_method->setAxisY(axisY, MinTempLine);
 
     return chart_method;
+}
+
+QStringList GetCitiesQList(Cities obj)
+{
+    std::vector<std::string> vec = obj.GetCities();
+    QStringList StrList;
+    for(const auto& city: vec)
+    {
+        StrList.append(QString::fromStdString(city));
+    }
+    return StrList;
 }

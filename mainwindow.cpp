@@ -1,14 +1,24 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+Cities cities;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
 
     ui->setupUi(this);
+    ui->citieslist->setStyleSheet("combobox-popup: 0;");
+    ui->citieslist->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
-    std::shared_ptr<Rapidjson> json = GetWeatherData("29.9964", "31.295");
+    QStringList citieslist1 = GetCitiesQList(cities);
+    ui->citieslist->addItems(citieslist1);
+
+    std::string city = ui->citieslist->currentText().toStdString();
+    std::pair<std::string, std::string> axis = cities.GetAxis(city);
+
+    std::shared_ptr<Rapidjson> json = GetWeatherData(axis.first, axis.second);
     float weather = json->GetTemperature();
     ui->CurrentWeather->setText(QString::number(weather, 'g', 4));
 
@@ -28,34 +38,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    if(ui->Longitude_in->text().isEmpty() || ui->Latitude_in->text().isEmpty())
-    {
-        ui->ErrorMsg->setText("THERE IS AN EMPTY FIELD!!");
-    }
-    else
-    {
-        std::string longitude = ui->Longitude_in->text().toStdString();
-        std::string latitude = ui->Latitude_in->text().toStdString();
-        if(isValidNumber(longitude, true) && isValidNumber(latitude, false))
-        {
-            std::shared_ptr<Rapidjson>  json = GetWeatherData(latitude, longitude);
+    std::string city = ui->citieslist->currentText().toStdString();
+    std::pair<std::string, std::string> axis = cities.GetAxis(city);
 
-            float weather = json->GetTemperature();
-            ui->CurrentWeather->setText(QString::number(weather, 'g', 4));
+    std::shared_ptr<Rapidjson>  json = GetWeatherData(axis.first, axis.second);
 
-            std::string Date = json->GetDate();
-            ui->Current_Date->setText(QString::fromStdString(Date));
+    float weather = json->GetTemperature();
+    ui->CurrentWeather->setText(QString::number(weather, 'g', 4));
 
-            QChart * chart = UpdateGraph(json);
-            ui->graphicsView->setChart(chart);
+    std::string Date = json->GetDate();
+    ui->Current_Date->setText(QString::fromStdString(Date));
 
-            ui->ErrorMsg->setText("");
-        }
-        else
-        {
-            ui->ErrorMsg->setText("INVALID NUMBER!!");
-        }
-    }
+    QChart * chart = UpdateGraph(json);
+    ui->graphicsView->setChart(chart);
 
 }
 
