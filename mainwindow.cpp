@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->citieslist->setStyleSheet("combobox-popup: 0;");
     ui->citieslist->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
-    QStringList citieslist1 = GetCitiesQList(cities);
-    ui->citieslist->addItems(citieslist1);
+    QStringList citieslist = GetCitiesQList(cities);
+    ui->citieslist->addItems(citieslist);
 
     std::string city = ui->citieslist->currentText().toStdString();
     std::pair<std::string, std::string> axis = cities.GetAxis(city);

@@ -77,7 +77,7 @@ public:
         Current_Date->setGeometry(QRect(220, 60, 66, 17));
         CurrentWeather = new QLabel(centralwidget);
         CurrentWeather->setObjectName("CurrentWeather");
-        CurrentWeather->setGeometry(QRect(560, 60, 66, 17));
+        CurrentWeather->setGeometry(QRect(540, 60, 66, 17));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -94,13 +94,13 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Weather Forcast", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Weather Forecast", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Get Current Weather", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Current Weather:", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Current Date:", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Choose a governorate:", nullptr));
         Current_Date->setText(QString());
-        CurrentWeather->setText(QString());
+        CurrentWeather->setText(QCoreApplication::translate("MainWindow", "w", nullptr));
     } // retranslateUi
 
 };

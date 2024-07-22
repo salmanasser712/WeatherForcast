@@ -6,8 +6,6 @@ extern Cities cities;
 
 int main(int argc, char *argv[])
 {
-
-    QApplication a(argc, argv);
     cities.AddCity("Cairo", "30.06263", "31.24967");
     cities.AddCity("Alexandria", "31.21564", "29.95527");
     cities.AddCity("Giza", "30.00808", "31.21093");
@@ -20,6 +18,8 @@ int main(int argc, char *argv[])
     cities.AddCity("Tanta", "30.78847", "31.00192");
     cities.AddCity("Faiyum", "29.30995", "30.8418");
     cities.AddCity("Zagazig", "30.58768", "31.502");
+
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
     return a.exec();

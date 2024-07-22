@@ -12,9 +12,9 @@ class Rapidjson : public RapidjsonAbstract
     std::string GetDate() override;
     std::string GetTime() override;
     float GetTemperature() override;
-    float * GetMinForcastTemp();
-    float * GetMaxForcastTemp();
-    std::string * GetForcastDate();
+    float * GetMinForecastTemp();
+    float * GetMaxForecastTemp();
+    std::string * GetForecastDate();
     ~Rapidjson()override = default;
 };
 

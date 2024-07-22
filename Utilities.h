@@ -17,8 +17,8 @@
 
 
 std::shared_ptr<Rapidjson>  GetWeatherData(std::string Lat, std::string Long);
-QLineSeries * GetMaxForcastLine(std::shared_ptr<Rapidjson> json);
-QLineSeries * GetMinForcastLine(std::shared_ptr<Rapidjson> json);
+QLineSeries * GetMaxForecastLine(std::shared_ptr<Rapidjson> json);
+QLineSeries * GetMinForecastLine(std::shared_ptr<Rapidjson> json);
 QCategoryAxis * GetaxisX(std::shared_ptr<Rapidjson> json);
 QValueAxis * GetaxisY();
 QChart * UpdateGraph(std::shared_ptr<Rapidjson> json);

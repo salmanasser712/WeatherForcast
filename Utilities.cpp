@@ -14,9 +14,9 @@ std::shared_ptr<Rapidjson> GetWeatherData(std::string Lat, std::string Long)
     return json;
 }
 
-QLineSeries * GetMaxForcastLine(std::shared_ptr<Rapidjson> json)
+QLineSeries * GetMaxForecastLine(std::shared_ptr<Rapidjson> json)
 {
-    float * Maxtemp = json->GetMaxForcastTemp();
+    float * Maxtemp = json->GetMaxForecastTemp();
     QLineSeries * MaxTempLine = new QLineSeries();
 
     for(int i = 0; i < NumDays; i++)
@@ -31,9 +31,9 @@ QLineSeries * GetMaxForcastLine(std::shared_ptr<Rapidjson> json)
     return MaxTempLine;
 }
 
-QLineSeries * GetMinForcastLine(std::shared_ptr<Rapidjson> json)
+QLineSeries * GetMinForecastLine(std::shared_ptr<Rapidjson> json)
 {
-    float * Mintemp = json->GetMinForcastTemp();
+    float * Mintemp = json->GetMinForecastTemp();
     QLineSeries * MinTempLine = new QLineSeries();
 
     for(int i = 0; i < NumDays; i++)
@@ -51,7 +51,7 @@ QLineSeries * GetMinForcastLine(std::shared_ptr<Rapidjson> json)
 
 QCategoryAxis * GetaxisX(std::shared_ptr<Rapidjson>  json)
 {
-    std::string * Dates = json->GetForcastDate();
+    std::string * Dates = json->GetForecastDate();
 
     QCategoryAxis * axisX = new QCategoryAxis();
     axisX->setTitleText("Date");
@@ -73,8 +73,8 @@ QValueAxis * GetaxisY()
 }
 QChart * UpdateGraph(std::shared_ptr<Rapidjson> json)
 {
-    QLineSeries * MaxTempLine = GetMaxForcastLine(json);
-    QLineSeries * MinTempLine = GetMinForcastLine(json);
+    QLineSeries * MaxTempLine = GetMaxForecastLine(json);
+    QLineSeries * MinTempLine = GetMinForecastLine(json);
 
     QChart* chart_method = new QChart();
     chart_method->addSeries(MaxTempLine);

@@ -39,35 +39,35 @@ float Rapidjson:: GetTemperature()
     return d["current"]["temperature_2m"].GetFloat();
 }
 
-float * Rapidjson::GetMinForcastTemp()
+float * Rapidjson::GetMinForecastTemp()
 {
-    const Value& MinForcastTemp = this->d["daily"]["temperature_2m_min"];
+    const Value& MinForecastTemp = this->d["daily"]["temperature_2m_min"];
     static float arr[NumDays];
-    for(SizeType i = 0; i < MinForcastTemp.Size(); i++)
+    for(SizeType i = 0; i < MinForecastTemp.Size(); i++)
     {
-        arr[i] = MinForcastTemp[i].GetFloat();
+        arr[i] = MinForecastTemp[i].GetFloat();
     }
     return arr;
 }
 
-float * Rapidjson::GetMaxForcastTemp()
+float * Rapidjson::GetMaxForecastTemp()
 {
-    const Value& MaxForcastTemp = this->d["daily"]["temperature_2m_max"];
+    const Value& MaxForecastTemp = this->d["daily"]["temperature_2m_max"];
     static float arr[NumDays];
-    for(SizeType i = 0; i < MaxForcastTemp.Size(); i++)
+    for(SizeType i = 0; i < MaxForecastTemp.Size(); i++)
     {
-        arr[i] = MaxForcastTemp[i].GetFloat();
+        arr[i] = MaxForecastTemp[i].GetFloat();
     }
     return arr;
 }
 
-std::string * Rapidjson:: GetForcastDate()
+std::string * Rapidjson:: GetForecastDate()
 {
-    const Value& ForcastDate = this->d["daily"]["time"];
+    const Value& ForecastDate = this->d["daily"]["time"];
     static std::string arr[NumDays];
-    for(SizeType i = 0; i < ForcastDate.Size(); i++)
+    for(SizeType i = 0; i < ForecastDate.Size(); i++)
     {
-        arr[i] = ForcastDate[i].GetString();
+        arr[i] = ForecastDate[i].GetString();
     }
     return arr;
 }
