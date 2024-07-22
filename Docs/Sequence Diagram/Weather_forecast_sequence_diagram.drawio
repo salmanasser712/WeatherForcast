@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-07-22T11:44:52.927Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="BLgd150IOmriG51BfjWP" version="24.7.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-07-22T13:34:43.980Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="e7o0bcEGoiolzD4v7MhN" version="24.7.1" type="device">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="1512" dy="390" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -290,7 +290,7 @@
             <mxPoint x="790" y="589.52" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pxj7KAtR6Jrmdoh74nm6-81" value="json-&amp;gt;GetMaxForcastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="pxj7KAtR6Jrmdoh74nm6-77" vertex="1" connectable="0">
+        <mxCell id="pxj7KAtR6Jrmdoh74nm6-81" value="json-&amp;gt;GetMaxForecastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="pxj7KAtR6Jrmdoh74nm6-77" vertex="1" connectable="0">
           <mxGeometry x="-0.4417" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -315,7 +315,7 @@
             <mxPoint x="790" y="630" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pxj7KAtR6Jrmdoh74nm6-84" value="json-&amp;gt;GetMinForcastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="pxj7KAtR6Jrmdoh74nm6-83" vertex="1" connectable="0">
+        <mxCell id="pxj7KAtR6Jrmdoh74nm6-84" value="json-&amp;gt;GetMinForecastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="pxj7KAtR6Jrmdoh74nm6-83" vertex="1" connectable="0">
           <mxGeometry x="-0.4417" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -340,7 +340,7 @@
             <mxPoint x="790" y="669.31" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pxj7KAtR6Jrmdoh74nm6-93" value="json-&amp;gt;GetForcastDate()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="pxj7KAtR6Jrmdoh74nm6-92" vertex="1" connectable="0">
+        <mxCell id="pxj7KAtR6Jrmdoh74nm6-93" value="json-&amp;gt;GetForecastDate()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="pxj7KAtR6Jrmdoh74nm6-92" vertex="1" connectable="0">
           <mxGeometry x="-0.4417" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -580,7 +580,7 @@
             <mxPoint x="790" y="1039.21" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dXEII69Fd5C7IKYdCOXC-66" value="json-&amp;gt;GetMaxForcastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dXEII69Fd5C7IKYdCOXC-65">
+        <mxCell id="dXEII69Fd5C7IKYdCOXC-66" value="json-&amp;gt;GetMaxForecastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dXEII69Fd5C7IKYdCOXC-65">
           <mxGeometry x="-0.4417" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -605,7 +605,7 @@
             <mxPoint x="790" y="1079.69" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dXEII69Fd5C7IKYdCOXC-71" value="json-&amp;gt;GetMinForcastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dXEII69Fd5C7IKYdCOXC-70">
+        <mxCell id="dXEII69Fd5C7IKYdCOXC-71" value="json-&amp;gt;GetMinForecastTemp()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dXEII69Fd5C7IKYdCOXC-70">
           <mxGeometry x="-0.4417" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -630,7 +630,7 @@
             <mxPoint x="790" y="1119" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dXEII69Fd5C7IKYdCOXC-76" value="json-&amp;gt;GetForcastDate()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dXEII69Fd5C7IKYdCOXC-75">
+        <mxCell id="dXEII69Fd5C7IKYdCOXC-76" value="json-&amp;gt;GetForecastDate()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dXEII69Fd5C7IKYdCOXC-75">
           <mxGeometry x="-0.4417" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
